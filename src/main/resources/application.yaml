@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: sbdocs
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: https://platform.ai.reksoft.com/api/v1
+
+      chat:
+        options:
+          model: minimax-m2
+
+      embedding:
+        options:
+          model: bge-m3
+
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimension: 1024
+        initialize-schema: true
+
+  docker:
+    compose:
+      lifecycle-management: start_only
